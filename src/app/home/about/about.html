@@ -1,0 +1,28 @@
+<section id="about" class="section about" aria-labelledby="about-heading">
+  <div class="container">
+    <p class="section-label">01 — About</p>
+    <h2 id="about-heading" class="section-title">A bit about me</h2>
+    <div class="about-grid">
+      <div class="about-bio">
+        <p>
+          I'm a frontend engineer based in London, currently at <strong>Direct Line Group</strong>
+          building the Home Insurance platform — managing the full policy lifecycle from quotes
+          through to renewals for millions of customers.
+        </p>
+        <p>
+          With 6+ years across insurance, fintech, and enterprise platforms, I specialise in
+          <strong>Angular</strong> and <strong>TypeScript</strong> with a focus on scalable
+          architecture, micro frontends, NgRx state management, and web accessibility.
+        </p>
+      </div>
+      <div class="about-skills">
+        <h3 class="skills-title">Technologies I work with</h3>
+        <ul class="skills-grid" role="list">
+          @for (skill of skills; track skill) {
+            <li class="skill-tag">{{ skill }}</li>
+          }
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>

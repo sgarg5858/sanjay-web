@@ -1,0 +1,57 @@
+<section id="hero" class="hero" aria-labelledby="hero-name">
+  <div class="container hero-container">
+
+    <!-- Terminal window -->
+    <div class="terminal-window">
+      <div class="terminal-chrome" aria-hidden="true">
+        <div class="terminal-dots">
+          <span class="dot dot-red"></span>
+          <span class="dot dot-yellow"></span>
+          <span class="dot dot-green"></span>
+        </div>
+        <span class="terminal-title">~/portfolio</span>
+      </div>
+
+      <div class="terminal-body">
+        <!-- whoami -->
+        <div class="t-line" aria-hidden="true">
+          <span class="t-prompt">~</span>
+          <span class="t-cmd">whoami</span>
+        </div>
+        <div class="t-output">
+          <h1 id="hero-name" class="t-name">Sanjay Garg</h1>
+          <p class="t-role">Frontend Engineer</p>
+        </div>
+
+        <!-- cat about.txt -->
+        <div class="t-line" aria-hidden="true">
+          <span class="t-prompt">~</span>
+          <span class="t-cmd">cat about.txt</span>
+        </div>
+        <div class="t-output">
+          <p class="t-bio">
+            Currently at Direct Line Group, building insurance<br>
+            platforms serving millions of customers in London.
+          </p>
+        </div>
+
+        <!-- idle cursor -->
+        <div class="t-line">
+          <span class="t-prompt" aria-hidden="true">~</span>
+          <span class="t-cursor" aria-hidden="true">█</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- CTAs -->
+    <div class="hero-actions">
+      <a href="#experience" class="btn btn-primary">
+        <span aria-hidden="true">./</span>explore --work
+      </a>
+      <a [href]="'mailto:' + email" class="btn btn-ghost">
+        <span aria-hidden="true">./</span>contact --email
+      </a>
+    </div>
+
+  </div>
+</section>
