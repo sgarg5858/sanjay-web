@@ -8,12 +8,12 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
 })
 export class AboutComponent {
   readonly skills = [
-    'TypeScript',
-    'JavaScript',
-    'Angular',
-    'React',
+    'Angular 20',
     'NgRx',
     'RxJS',
+    'TypeScript',
+    'JavaScript',
+    'React',
     'HTML5 & CSS3',
     'SCSS',
     'Nx / Module Federation',
