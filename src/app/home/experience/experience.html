@@ -1,7 +1,6 @@
 <section id="experience" class="section experience" aria-labelledby="experience-heading">
   <div class="container">
-    <p class="section-label">02 — Experience</p>
-    <h2 id="experience-heading" class="section-title">Where I've worked</h2>
+   <h2 id="experience-heading" class="section-title">Where I've worked</h2>
     <ol class="timeline" aria-label="Work history">
       @for (job of experience; track job.company) {
         <app-experience-item [job]="job" />

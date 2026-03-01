@@ -7,5 +7,5 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class HeroComponent {
-  readonly email = 'hello@sanjay.dev';
+  readonly email = 'sgarg5858@gmail.com';
 }
