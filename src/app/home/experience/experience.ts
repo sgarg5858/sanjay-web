@@ -9,10 +9,13 @@ import { ExperienceItemComponent, Experience } from './experience-item/experienc
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ExperienceComponent {
+  /** Text-safe accent per role, cycled in order. */
+  readonly jobColors = ['var(--c-blue)', 'var(--c-orange)', 'var(--c-green)', 'var(--c-pink)'];
+
   readonly experience: Experience[] = [
     {
-      role: 'Engineer 3 (Technology)',
-      company: '(Direct Line Group), Aviva',
+      role: 'Technology Developer',
+      company: 'Aviva',
       location: 'London, UK',
       startDate: 'Feb 2024',
       endDate: 'Present',

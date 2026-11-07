@@ -1,9 +1,13 @@
 <section id="experience" class="section experience" aria-labelledby="experience-heading">
-  <div class="container">
-   <h2 id="experience-heading" class="section-title">Where I've worked</h2>
-    <ol class="timeline" aria-label="Work history">
-      @for (job of experience; track job.company) {
-        <app-experience-item [job]="job" />
+  <div class="container section-inner">
+    <h2 id="experience-heading" class="section-title">
+      <span class="section-num" aria-hidden="true">02</span>
+      Where I've worked
+    </h2>
+
+    <ol class="jobs" aria-label="Work history">
+      @for (job of experience; track job.company; let i = $index) {
+        <app-experience-item [job]="job" [style.--job-color]="jobColors[i % jobColors.length]" />
       }
     </ol>
   </div>

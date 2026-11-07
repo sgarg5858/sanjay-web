@@ -7,7 +7,6 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ContactComponent {
-  readonly email = 'sgarg5858@gmail.com';
   readonly linkedInUrl = 'https://www.linkedin.com/in/sanjay-garg-26bab6153/';
   readonly githubUrl = 'https://github.com/sgarg5858';
 }

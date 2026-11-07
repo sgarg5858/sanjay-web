@@ -1,99 +1,83 @@
+// --job-color is set per item by the parent list.
 :host {
   display: grid;
-  grid-template-columns: 180px 1fr;
+  grid-template-columns: 180px minmax(0, 1fr);
   gap: 2.5rem;
-  padding: 0 0 3.5rem 2.5rem;
-  position: relative;
+  padding: 2rem 2rem 2.25rem;
+  border-radius: 14px;
+  border: 1px solid var(--color-border);
+  border-left: 4px solid var(--job-color);
+  background-color: color-mix(in srgb, var(--job-color) 4%, var(--color-bg));
+  transition: background-color 0.2s ease, transform 0.2s ease;
 
-  &::before {
-    content: '';
-    position: absolute;
-    left: -4px;
-    top: 0.5rem;
-    width: 9px;
-    height: 9px;
-    border-radius: 50%;
-    background-color: var(--color-surface-2);
-    border: 2px solid var(--color-border);
-    transition: background-color 0.2s ease, border-color 0.2s ease;
-  }
-
-  &:hover::before {
-    background-color: var(--color-accent);
-    border-color: var(--color-accent);
-  }
-
-  &:last-child {
-    padding-bottom: 0;
+  &:hover {
+    background-color: color-mix(in srgb, var(--job-color) 9%, var(--color-bg));
   }
 }
 
-.timeline-meta {
+.job-side {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.25rem;
   padding-top: 0.2rem;
 }
 
-.timeline-dates {
-  font-size: 0.8125rem;
-  color: var(--color-text-muted);
-  font-weight: 500;
-  letter-spacing: 0.01em;
+.job-dates {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--color-text);
+  font-variant-numeric: tabular-nums;
   white-space: nowrap;
 }
 
-.timeline-role {
-  font-size: 1.125rem;
-  font-weight: 600;
-  color: var(--color-text);
-  margin-bottom: 0.2rem;
-  letter-spacing: -0.02em;
-}
-
-.timeline-meta-row {
-  display: flex;
-  align-items: center;
-  gap: 0.625rem;
-  margin-bottom: 1rem;
-  flex-wrap: wrap;
-}
-
-.timeline-company {
-  font-size: 0.9375rem;
-  color: var(--color-accent-light);
-  font-weight: 500;
-}
-
-.timeline-location {
-  font-size: 0.8125rem;
+.job-location {
+  font-size: 0.875rem;
   color: var(--color-text-muted);
-  font-weight: 400;
-
-  &::before {
-    content: '·';
-    margin-right: 0.625rem;
-    opacity: 0.5;
-  }
 }
 
-.timeline-points {
-  list-style: none;
-  display: flex;
-  flex-direction: column;
+.job-now {
+  margin-top: 0.625rem;
+  padding: 0.15rem 0.55rem;
+  border-radius: 6px;
+  background-color: var(--job-color);
+  color: var(--on-color);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.job-role {
+  font-size: clamp(1.1875rem, 2vw, 1.375rem);
+  font-weight: 600;
+  letter-spacing: -0.025em;
+  line-height: 1.3;
+  color: var(--color-text);
+}
+
+.job-company {
+  margin-top: 0.125rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--job-color);
+}
+
+.job-points {
+  list-style: disc;
+  margin-top: 1.125rem;
+  padding-left: 1.125rem;
+  max-width: 44rem;
+  display: grid;
   gap: 0.5rem;
 
   li {
     font-size: 0.9375rem;
+    line-height: 1.7;
     color: var(--color-text-muted);
-    line-height: 1.65;
-    padding-left: 1.375rem;
-    position: relative;
+    padding-left: 0.25rem;
 
-    &::before {
-      content: '→';
-      position: absolute;
-      left: 0;
-      color: var(--color-accent);
-      font-size: 0.7rem;
-      top: 0.3em;
+    &::marker {
+      color: var(--job-color);
     }
   }
 }
@@ -101,14 +85,18 @@
 @media (max-width: 768px) {
   :host {
     grid-template-columns: 1fr;
-    gap: 0.25rem;
-    padding-left: 0;
-    padding-bottom: 2.5rem;
-    border-top: 1px solid var(--color-border);
-    padding-top: 2rem;
+    gap: 1rem;
+    padding: 1.5rem 1.25rem 1.75rem;
+  }
 
-    &::before {
-      display: none;
-    }
+  .job-side {
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.25rem 0.75rem;
+  }
+
+  .job-now {
+    margin-top: 0;
   }
 }
