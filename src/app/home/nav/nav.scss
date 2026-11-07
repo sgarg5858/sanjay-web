@@ -4,13 +4,14 @@ nav {
   left: 0;
   right: 0;
   z-index: 100;
-  transition: background-color 0.3s ease, border-color 0.3s ease, backdrop-filter 0.3s ease;
+  border-bottom: 1px solid transparent;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
 
   &.scrolled {
-    background-color: var(--nav-scrolled-bg);
-    border-bottom: 1px solid var(--color-border);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
+    background-color: var(--nav-bg);
+    border-bottom-color: var(--color-border);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
   }
 }
 
@@ -25,34 +26,26 @@ nav {
 }
 
 .nav-logo {
-  font-size: 1.25rem;
-  font-weight: 700;
-  letter-spacing: -0.03em;
+  font-size: 0.9375rem;
+  font-weight: 600;
   color: var(--color-text);
-  transition: color 0.2s ease;
-
-  &:hover {
-    color: var(--color-accent-light);
-  }
 }
 
 .nav-right {
   display: flex;
   align-items: center;
-  gap: 2rem;
+  gap: 1.75rem;
 }
 
 .nav-links {
   display: flex;
   list-style: none;
-  gap: 2rem;
+  gap: 1.75rem;
 
   a {
-    font-size: 0.875rem;
-    font-weight: 500;
+    font-size: 0.9375rem;
     color: var(--color-text-muted);
-    transition: color 0.2s ease;
-    letter-spacing: 0.01em;
+    transition: color 0.15s ease;
 
     &:hover {
       color: var(--color-text);
@@ -61,53 +54,50 @@ nav {
 }
 
 .theme-toggle {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 36px;
-  height: 36px;
-  border-radius: 8px;
-  border: 1px solid var(--color-border);
-  background-color: transparent;
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  margin-right: -0.5rem;
+  border-radius: 6px;
+  border: none;
+  background: transparent;
   color: var(--color-text-muted);
   cursor: pointer;
-  transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease, transform 0.15s ease;
+  transition: color 0.15s ease, background-color 0.15s ease;
   flex-shrink: 0;
 
   &:hover {
-    background-color: var(--color-surface-2);
-    border-color: var(--color-text-muted);
     color: var(--color-text);
-  }
-
-  &:active {
-    transform: scale(0.92);
+    background-color: var(--color-surface);
   }
 
   svg {
     pointer-events: none;
-    transition: transform 0.3s ease;
-  }
-
-  &:hover svg {
-    transform: rotate(15deg);
   }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 560px) {
   .nav-inner {
     padding: 0 1.25rem;
   }
 
+  .nav-right,
   .nav-links {
-    gap: 1.25rem;
-
-    a {
-      font-size: 0.8125rem;
-    }
+    gap: 1rem;
   }
 
-  .nav-right {
-    gap: 1rem;
+  .nav-links a {
+    font-size: 0.875rem;
+  }
+}
+
+@media (max-width: 380px) {
+  .nav-logo {
+    font-size: 0.875rem;
+  }
+
+  .nav-links {
+    gap: 0.75rem;
   }
 }

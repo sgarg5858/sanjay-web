@@ -1,20 +1,9 @@
-.timeline {
-  list-style: none;
-  position: relative;
-
-  &::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 0.625rem;
-    bottom: 2rem;
-    width: 1px;
-    background: linear-gradient(to bottom, var(--color-border), transparent);
-  }
+.experience {
+  --section-color: var(--c-blue);
 }
 
-@media (max-width: 768px) {
-  .timeline::before {
-    display: none;
-  }
+.jobs {
+  list-style: none;
+  display: grid;
+  gap: 1rem;
 }

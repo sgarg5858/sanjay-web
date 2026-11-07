@@ -7,6 +7,14 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AboutComponent {
+  readonly chipColors = [
+    'var(--fill-orange)',
+    'var(--fill-blue)',
+    'var(--fill-green)',
+    'var(--fill-yellow)',
+    'var(--fill-pink)',
+  ];
+
   readonly skills = [
     'Angular 20',
     'NgRx',

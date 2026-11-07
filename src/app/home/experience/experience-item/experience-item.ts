@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, input } from '@angular/core';
 
 export interface Experience {
   role: string;
@@ -14,22 +14,22 @@ export interface Experience {
   styleUrl: './experience-item.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
   host: {
-    class: 'timeline-item',
     role: 'listitem',
   },
   template: `
-    <div class="timeline-meta">
-      <span class="timeline-dates">{{ job().startDate }} - {{ job().endDate }}</span>
+    <div class="job-side">
+      <p class="job-dates">{{ job().startDate }} – {{ job().endDate }}</p>
+      <p class="job-location"><span class="visually-hidden">Location: </span>{{ job().location }}</p>
+      @if (isCurrent()) {
+        <p class="job-now">Now</p>
+      }
     </div>
-    <div class="timeline-content">
-      <h3 class="timeline-role">{{ job().role }}</h3>
-      <div class="timeline-meta-row">
-        <span class="timeline-company">{{ job().company }}</span>
-        <span class="timeline-location" aria-label="Location">{{ job().location }}</span>
-      </div>
-      <ul class="timeline-points" aria-label="Key contributions">
+    <div class="job-main">
+      <h3 class="job-role">{{ job().role }}</h3>
+      <p class="job-company">{{ job().company }}</p>
+      <ul class="job-points" aria-label="Key contributions">
         @for (point of job().points; track point) {
-          <li>{{ point }}</li>
+          <li>{{ point.trim() }}</li>
         }
       </ul>
     </div>
@@ -37,4 +37,5 @@ export interface Experience {
 })
 export class ExperienceItemComponent {
   readonly job = input.required<Experience>();
+  readonly isCurrent = computed(() => this.job().endDate === 'Present');
 }
