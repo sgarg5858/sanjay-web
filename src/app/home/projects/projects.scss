@@ -1,0 +1,119 @@
+.projects {
+  --section-color: var(--c-green);
+}
+
+.projects-list {
+  list-style: none;
+  display: grid;
+  gap: 1rem;
+}
+
+.project {
+  position: relative;
+  display: grid;
+  gap: 1.5rem;
+  padding: 2.25rem 2rem;
+  border-radius: 14px;
+  border: 1px solid var(--color-border);
+  border-left: 4px solid var(--c-green);
+  background-color: color-mix(in srgb, var(--c-green) 4%, var(--color-bg));
+  transition: background-color 0.2s ease;
+
+  &:hover {
+    background-color: color-mix(in srgb, var(--c-green) 8%, var(--color-bg));
+  }
+}
+
+.project-head {
+  display: grid;
+  gap: 0.75rem;
+  justify-items: start;
+}
+
+.project-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--c-green);
+}
+
+.status-dot {
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+  background-color: var(--fill-green);
+  box-shadow: 0 0 0 0 color-mix(in srgb, var(--fill-green) 60%, transparent);
+  animation: pulse 2s ease-out infinite;
+}
+
+.project-name {
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  font-weight: 650;
+  letter-spacing: -0.04em;
+  line-height: 1.1;
+  color: var(--color-text);
+}
+
+.project-summary {
+  max-width: 44rem;
+  font-size: 1.0625rem;
+  line-height: 1.75;
+  color: var(--color-text-muted);
+}
+
+.project-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem 3rem;
+}
+
+.meta-title {
+  margin-bottom: 0.75rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--color-text-muted);
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  list-style: none;
+}
+
+.chip {
+  padding: 0.4rem 0.75rem;
+  border-radius: 8px;
+  border: 1px solid var(--color-border);
+  background-color: var(--color-surface);
+  font-size: 0.875rem;
+  color: var(--color-text);
+}
+
+.project-cta {
+  justify-self: start;
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 color-mix(in srgb, var(--fill-green) 60%, transparent);
+  }
+  70%,
+  100% {
+    box-shadow: 0 0 0 0.5rem transparent;
+  }
+}
+
+@media (max-width: 768px) {
+  .project {
+    padding: 1.5rem 1.25rem 1.75rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .status-dot {
+    animation: none;
+  }
+}

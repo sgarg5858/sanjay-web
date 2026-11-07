@@ -4,10 +4,11 @@ import { HeroComponent } from './hero/hero';
 import { AboutComponent } from './about/about';
 import { ExperienceComponent } from './experience/experience';
 import { ContactComponent } from './contact/contact';
+import { ProjectsComponent } from './projects/projects';
 
 @Component({
   selector: 'app-home',
-  imports: [NavComponent, HeroComponent, AboutComponent, ExperienceComponent, ContactComponent],
+  imports: [NavComponent, HeroComponent, AboutComponent, ExperienceComponent, ProjectsComponent, ContactComponent],
   templateUrl: './home.html',
   styleUrl: './home.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,

@@ -1,0 +1,53 @@
+<section id="projects" class="section projects" aria-labelledby="projects-heading">
+  <div class="container section-inner">
+    <h2 id="projects-heading" class="section-title">
+      <span class="section-num" aria-hidden="true">03</span>
+      What I'm building
+    </h2>
+
+    <ul class="projects-list" role="list">
+      @for (project of projects; track project.name) {
+        <li>
+          <article class="project" [attr.aria-labelledby]="'project-' + $index">
+            <div class="project-head">
+              <span class="project-status">
+                <span class="status-dot" aria-hidden="true"></span>
+                {{ project.status }}
+              </span>
+              <h3 [id]="'project-' + $index" class="project-name">{{ project.name }}</h3>
+            </div>
+
+            <p class="project-summary">{{ project.summary }}</p>
+
+            <div class="project-meta">
+              <div>
+                <h4 class="meta-title">Covers</h4>
+                <ul class="chips" role="list">
+                  @for (topic of project.topics; track topic) {
+                    <li class="chip">{{ topic }}</li>
+                  }
+                </ul>
+              </div>
+              <div>
+                <h4 class="meta-title">Built with</h4>
+                <ul class="chips" role="list">
+                  @for (tech of project.stack; track tech) {
+                    <li class="chip">{{ tech }}</li>
+                  }
+                </ul>
+              </div>
+            </div>
+
+            <a class="btn btn-primary project-cta" [href]="project.url" target="_blank" rel="noopener noreferrer">
+              Explore {{ project.name }}
+              <span class="visually-hidden">(opens in new tab)</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M7 17 17 7M8 7h9v9" />
+              </svg>
+            </a>
+          </article>
+        </li>
+      }
+    </ul>
+  </div>
+</section>
