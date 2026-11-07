@@ -17,12 +17,8 @@ export interface Experience {
     role: 'listitem',
   },
   template: `
-    <div class="job-side">
-      <p class="job-dates">{{ job().startDate }} – {{ job().endDate }}</p>
-      <p class="job-location"><span class="visually-hidden">Location: </span>{{ job().location }}</p>
-      @if (isCurrent()) {
-        <p class="job-now">Now</p>
-      }
+    <div class="timeline-meta">
+      <span class="timeline-dates">{{ job().startDate }} - {{ job().endDate }}</span>
     </div>
     <div class="job-main">
       <h3 class="job-role">{{ job().role }}</h3>
