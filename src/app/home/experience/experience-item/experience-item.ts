@@ -19,7 +19,7 @@ export interface Experience {
   },
   template: `
     <div class="timeline-meta">
-      <span class="timeline-dates">{{ job().startDate }} – {{ job().endDate }}</span>
+      <span class="timeline-dates">{{ job().startDate }} - {{ job().endDate }}</span>
     </div>
     <div class="timeline-content">
       <h3 class="timeline-role">{{ job().role }}</h3>
