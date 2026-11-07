@@ -9,42 +9,47 @@
       @for (project of projects; track project.name) {
         <li>
           <article class="project" [attr.aria-labelledby]="'project-' + $index">
-            <div class="project-head">
+            <div class="project-main">
               <span class="project-status">
                 <span class="status-dot" aria-hidden="true"></span>
                 {{ project.status }}
               </span>
               <h3 [id]="'project-' + $index" class="project-name">{{ project.name }}</h3>
+              <p class="project-summary">{{ project.summary }}</p>
+
+              <figure class="token-demo">
+                <div class="token-row" aria-hidden="true">
+                  @for (token of project.demoTokens; track $index) {
+                    <span class="token" [style.--tok]="'var(--fill-' + tokenColors[$index % tokenColors.length] + ')'" [style.animation-delay.ms]="$index * 90">
+                      <span class="token-text">{{ token.text }}</span>
+                      <span class="token-id">{{ token.id }}</span>
+                    </span>
+                  }
+                </div>
+                <figcaption class="token-caption">How a model sees a sentence: tokens, each mapped to an ID.</figcaption>
+              </figure>
+
+              <div class="project-footer">
+                <a class="project-link" [href]="project.url" target="_blank" rel="noopener noreferrer">
+                  Start the guide
+                  <span class="visually-hidden">{{ project.name }} (opens in new tab)</span>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M7 17 17 7M8 7h9v9" />
+                  </svg>
+                </a>
+                <p class="project-stack">
+                  <span class="visually-hidden">Built with: </span>
+                  @for (tech of project.stack; track tech; let last = $last) {
+                    <span>{{ tech }}</span>
+                    @if (!last) {
+                      <span class="stack-sep" aria-hidden="true">·</span>
+                    }
+                  }
+                </p>
+              </div>
             </div>
 
-            <p class="project-summary">{{ project.summary }}</p>
-
-            <div class="project-meta">
-              <div>
-                <h4 class="meta-title">Covers</h4>
-                <ul class="chips" role="list">
-                  @for (topic of project.topics; track topic) {
-                    <li class="chip">{{ topic }}</li>
-                  }
-                </ul>
-              </div>
-              <div>
-                <h4 class="meta-title">Built with</h4>
-                <ul class="chips" role="list">
-                  @for (tech of project.stack; track tech) {
-                    <li class="chip">{{ tech }}</li>
-                  }
-                </ul>
-              </div>
-            </div>
-
-            <a class="btn btn-primary project-cta" [href]="project.url" target="_blank" rel="noopener noreferrer">
-              Explore {{ project.name }}
-              <span class="visually-hidden">(opens in new tab)</span>
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <path d="M7 17 17 7M8 7h9v9" />
-              </svg>
-            </a>
+            <app-chapter-deck [chapters]="project.chapters" />
           </article>
         </li>
       }
